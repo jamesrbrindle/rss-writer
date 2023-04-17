@@ -15,6 +15,8 @@ abstract class Common
     private $summary;
     private $title;
     private $keywords;
+    private $season;
+    private $episode;
 
     public function setAuthor($author)
     {
@@ -110,5 +112,29 @@ abstract class Common
     public function getKeywords()
     {
         return $this->keywords;
+    }
+
+    public function setSeason($number)
+    {
+        $this->season = $number;
+
+        return $this;
+    }
+
+    public function getSeason()
+    {
+        return $this->season;
+    }
+
+    public function setEpisode($number)
+    {
+        $this->episode = $number;
+
+        return $this;
+    }
+
+    public function getEpisode()
+    {
+        return $this->episode;
     }
 }

@@ -39,7 +39,7 @@ class ItunesWriter implements WriterRegistererInterface
         if ($channel->getKeywords()) {
             $writer->writeElement('itunes:keywords', $channel->getKeywords());
         }
-        
+
         if ($channel->getOwner()) {
             $owner = $channel->getOwner();
             $writer->startElement('itunes:owner');
@@ -121,6 +121,14 @@ class ItunesWriter implements WriterRegistererInterface
             $writer->startElement('itunes:subtitle');
             $writer->writeCdata($common->getSubtitle());
             $writer->endElement();
+        }
+
+        if ($common->getSeason()) {
+            $writer->writeElement('itunes:season', $common->getSeason());
+        }
+
+        if ($common->getEpisode()) {
+            $writer->writeElement('itunes:episode', $common->getEpisode());
         }
     }
 }
