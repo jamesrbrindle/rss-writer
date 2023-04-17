@@ -13,6 +13,8 @@ abstract class Common
     private $explicit;
     private $subtitle;
     private $summary;
+    private $title;
+    private $keywords;
 
     public function setAuthor($author)
     {
@@ -62,11 +64,23 @@ abstract class Common
         return $this->explicit;
     }
 
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
     public function setSubtitle($subtitle)
     {
         $this->subtitle = $subtitle;
 
         return $this;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
     }
 
     public function getSubtitle()
@@ -84,5 +98,17 @@ abstract class Common
     public function getSummary()
     {
         return $this->summary;
+    }
+
+    public function setKeywords($keywords)
+    {
+        $this->keywords = $keywords;
+
+        return $this;
+    }
+
+    public function getKeywords()
+    {
+        return $this->keywords;
     }
 }

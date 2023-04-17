@@ -88,6 +88,7 @@ final class ItunesChannel extends Common
     private $categories = [];
     private $complete;
     private $owner;
+    private $type;
 
     public function setComplete($complete)
     {
@@ -113,6 +114,18 @@ final class ItunesChannel extends Common
         return $this->owner;
     }
 
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function getType()
+    {
+        return $this->type;
+    }
+    
     public function setCategories(array $categories)
     {
         $this->categories = $categories;

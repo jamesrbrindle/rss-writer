@@ -28,10 +28,18 @@ class ItunesWriter implements WriterRegistererInterface
 
         $this->writeCommon($writer, $channel);
 
-        if ($channel->getComplete()) {
-            $writer->writeElement('itunes:complete', 'Yes');
+        if ($channel->getType()) {
+            $writer->writeElement('itunes:type', $channel->getType());
         }
 
+        if ($channel->getComplete()) {
+            $writer->writeElement('itunes:complete', $channel->getComplete());
+        }
+        
+        if ($channel->getKeywords()) {
+            $writer->writeElement('itunes:keywords', $channel->getKeywords());
+        }
+        
         if ($channel->getOwner()) {
             $owner = $channel->getOwner();
             $writer->startElement('itunes:owner');
@@ -102,6 +110,12 @@ class ItunesWriter implements WriterRegistererInterface
         }
 
         $writer->writeElement('itunes:explicit', true === $common->getExplicit() ? 'Yes' : 'No');
+
+        if ($common->getTitle()) {
+            $writer->startElement('itunes:title');
+            $writer->writeCdata($common->getTitle());
+            $writer->endElement();
+        }
 
         if ($common->getSubtitle()) {
             $writer->startElement('itunes:subtitle');
