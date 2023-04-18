@@ -115,6 +115,12 @@ class CoreWriter implements WriterRegistererInterface
         $writer->writeCdata($item->getTitle());
         $writer->endElement();
 
+        if ($item->getSubTitle()) {
+            $writer->startElement('subtitle');
+            $writer->writeCdata($item->getSubTitle());
+            $writer->endElement();
+        }
+        
         $writer->writeElement('link', $item->getLink());
 
         $writer->startElement('description');

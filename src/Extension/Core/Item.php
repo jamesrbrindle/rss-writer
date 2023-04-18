@@ -10,6 +10,7 @@ final class Item
      * @Assert\NotBlank
      */
     private $title;
+    private $subtitle;
 
     /**
      * @Assert\NotBlank
@@ -48,6 +49,18 @@ final class Item
         return $this->title;
     }
 
+    public function setSubTitle($subtitle)
+    {
+        $this->subtitle = $subtitle;
+
+        return $this;
+    }
+
+    public function getSubTitle()
+    {
+        return $this->subtitle;
+    }
+    
     public function setLink($link)
     {
         $this->link = $link;
